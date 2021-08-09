@@ -2,21 +2,16 @@
 
 $start=microtime(true);
 
-$length = 100000;
+$len = 100000;
 
-$numbers = [];
-while (count($numbers) < $length) $numbers[$numb] = ($numb = rand(0, $length*10));
-$values = array_values($numbers);
+function ARR($length) {
 
-print_r($values);
-echo 'Время выполнения скрипта: '.round(microtime(true) - $start, 4).' сек.';
+    $numbers = [];
+    while (count($numbers) < $length) $numbers[$numb] = ($numb = rand(0, $length*10));
+    $values = array_values($numbers);
 
-for ($i = 0; $i < $length;  $i ++) {
-    for ($j = $i + 1; $j < $length; $j++) {
-        if ($values[$i] == $values[$j]) {
-            echo "\n $values[i], $values[j], $i, $j";
-        }
-    }
+    return $values;
 }
 
-echo "konec'";
+print_r(ARR($len));
+echo 'Время выполнения скрипта: '.round(microtime(true) - $start, 4).' сек.';
